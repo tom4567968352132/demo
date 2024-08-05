@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental Services</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style2.css">
+    <style>
+        
+.header__form {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    width: calc(100% - 0rem);
+    max-width: 830px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background-color: transparent;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+@media only screen and (max-width: 600px) {
+    .header__form {
+        max-width: 600px;
+        padding: 0.5rem;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .header__form {
+        max-width: 600px;
+        padding: 0.5rem;
+        bottom: 15%;
+    }
+
+    .header__form input {
+        padding: 0.25rem 0.5rem;
+        font-size: 1rem;
+        outline: none;
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+
+    input[type="date"] { 
+        padding: 0.25rem 0.5rem;
+        font-size: 1rem;
+        outline: none;
+        border: 1px solid black;
+        border-radius: 5px;
+}
+}
+
+.header__form input {
+    z-index: 1;
+    flex: 2;
+    padding: 0.75rem 1rem;
+    font-size: 2rem;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+
+input[type="date"] { 
+    z-index: 1;
+    flex: 0.4;
+    padding: 0.75rem 1rem;
+    font-size: 2rem;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+/* smooth scroll bar */
+.scroll-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    /* border: 1px solid #ccc; */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.scroll-content {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.item {
+    display: inline-block;
+    width: 15vw;
+    height: 200px;
+    margin-right: 2vw;
+    /* background-color: #f0f0f0; */
+    text-align: center;
+    line-height: 100px;
+    /* border: 1px solid #ddd; */
+}
+
+@media (max-width: 600px) {
+    .item {
+        width: 30vw;
+        margin-right: 4vw;
+    }
+}
+
+/* FAQ's */
+.faq-question {
+    /* background-color: #f4f4f4; */
+    font-size: large;
+    font-weight: 500;
+    padding: 12px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    box-shadow: 0.9px 0.9px 0.9px 0.9px;
+    /* padding:10px; */
+    margin-bottom:10px;
+}
+
+.faq-answer {
+    display: none;
+    padding: 15px;
+}
+
+.active+.faq-answer {
+    display: block;
+}
+
+.footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px 0;
+            z-index: 1500;
+        }
+
+        .footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .social__icons i {
+            font-size: 24px;
+            margin: 0 5px;
+        }
+
+        .social__icons a {
+            color: #fff;
+        }
+
+        .reliability{
+            background-color: #fff;
+            padding:20px 0;
+            margin-bottom:30px;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            padding: 20px 0;
+            
+        }
+        .feature-item {
+            flex: 1;
+            max-width: 300px;
+            padding: 20px;
+            box-shadow: 2px 2px 2px 2px inset;
+        }
+
+        .feature-item h3 {
+            font-size: 1.2em;
+            margin-top:px;
+        }
+        .feature-item p {
+            font-size: 1em;
+            color: #555;
+        }
+        @media (max-width: 768px) {
+            .features {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="images/logo2.jpg" alt="logo" height="100%" width="50%" class="navbar-logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about2.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing_.html">pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="caontact2.html">Contact Us</a></li>
+                    <li class="nav-item" id="loginButton"><a class="nav-link" href="#">Login/Signup</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="login-container" id="loginContainer">
+        <!-- <form class="login-form" id="login" action="login.html" method="post"> -->
+        <form class="login-form" id="login" action="login.html" method="post">
+            <span style="font-size: 8rem;" class="close" id="close">&times;</span>
+            <h4>Login</h4>
+            <input type="email" name="email" placeholder="Email" class="box">
+            <input type="password" name="password" placeholder="Password" class="box">
+            <!-- <p><a href="#" style="text-decoration: none; color:red;">Forgot password</a></p> -->
+            <button type="submit" class="btn fs-2">Login Now</button>
+            <p>or login with</p>
+            <div class="button">
+                <a style="text-decoration: none;" href="Home.html"
+                    class="btn btn-outline-danger p-3 px-5 fs-4 me-5">Google</a>
+                <a style="text-decoration:none;" href="Home.html"
+                    class="btn btn-outline-danger p-3 px-5 fs-4">Facebook</a>
+            </div><br>
+            <p>Don't have an account? <a style="text-decoration: none; color: red;" href="register.html">Create one</a>
+            </p>
+        </form>
+    </div>
+
+    <div class="hero"
+        style="background:linear-gradient(to left, rgba(0,0,0,0), rgba(0,0,0,0.5)),url('images/9.jpg'); background-size:cover ; background-repeat:no-repeat; transform:scale(1); background-position:center;">
+        <div>
+            <!-- <img src=" images/9.jpg" class="img-fluid" alt="Image 1" style="opacity: 0.9; filter:blur(1px);"> -->
+            <div class="overlay w-100 h-100">
+                <h2 class="fw-bolder" style="opacity:1;">Regional charges</h2>
+                <p class="fw-bolder">Travel Around The City, Hassle-free With Our Affordable Cab Services</p>
+                    <!-- <button class="btn btn-outline-light p-3 fs-3 fw-bolder" onclick="location.href='#table'">Explore
+                        Pricing</button> -->
+            </div>
+            <form class="header__form">
+                <input type="text" placeholder="Plzz share your current city for optimized experience" />
+                <input type="date" placeholder="Enter Your Date" />
+                <button class="btn fs-3 btn-outline-light p-3 bg-danger text-light"> <a href="pricing22.html">GET
+                        CAR</a></button>
+            </form>
+        </div>
+    </div>
+    <div style="background-color: black; color: white;" class="container-fluid">
+        <div class="row text-center text-md-left">
+            <div class="col-12 col-md-3">
+                <h4>25,000+</h4>
+                <p>Verified Clients</p>
+            </div>
+            <div class="col-12 col-md-3">
+                <h4>20,000+</h4>
+                <p>Trusted Hosts</p>
+            </div>
+            <div class="col-12 col-md-3">
+                <h4>2 Billion+</h4>
+                <p>KMs Driven</p>
+            </div>
+            <div class="col-12 col-md-3">
+                <h4>9+ Cities</h4>
+                <p>And Counting...</p>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <section class="container-fluid">
+        <h3 class="text-center">Vehicles</h3>
+        <hr class="w-25 m-auto text-danger"><br>
+        <div class="scroll-container">
+            <div class="scroll-content">
+                <div class="item">
+                    <div class="swiper-slide d-flex flex-column">
+                        <div>
+                            <a href="2_.html">
+                                <img class="img-fluid border rounded img-equal-height" src="images/tata tigon.webp"
+                                    alt="Papeete cityscape">
+                            </a>
+                        </div>
+                        <div class="content">
+                            <p class="text-center">tata tigon</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="swiper-slide d-flex flex-column">
+                        <div>
+                            <a href="3_.html">
+                                <img class="img-fluid border rounded img-equal-height" src="images/renault kwid.webp"
+                                    alt="Tevaitoa beach">
+                            </a>
+                        </div>
+                        <div class="content">
+                            <p class="text-center">renault kwid</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="swiper-slide d-flex flex-column">
+                        <div>
+                            <a href="4_.html">
+                                <img class="img-fluid border rounded img-equal-height" src="images/maruti wagon.jpg"
+                                    alt="Maharepa resort">
+                            </a>
+                        </div>
+                        <div class="content">
+                            <p class="text-center">maruti wagon</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="swiper-slide d-flex flex-column pt-2">
+                        <div>
+                            <a href="5_.html">
+                                <img class="img-fluid border rounded img-equal-height"
+                                    src="images/Maruti Suzuki S-Presso.jpg" alt="Pihaena beach view">
+                            </a>
+                        </div>
+                        <div class="content">
+                            <p class="text-center">Maruti Suzuki S-Presso</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="swiper-slide d-flex flex-column">
+                        <div>
+                            <a href="7_.html">
+                                <img class="img-fluid border rounded img-equal-height"
+                                    src="images/maruti suzuki alto 800.webp" alt="Hero image - explore">
+                            </a>
+                        </div>
+                        <div class="content">
+                            <p class="text-center">maruti suzuki alto 800</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="swiper-slide d-flex flex-column">
+                        <div>
+                            <a href="8_.html">
+                                <img class="img-fluid border rounded img-equal-height" src="images/maruti alto k10.webp"
+                                    alt="Papeete cityscape">
+                            </a>
+                        </div>
+                        <div class="content">
+                            <p class="text-center">maruti alto k10</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="swiper-slide d-flex flex-column">
+                        <div>
+                            <a href="2_.html">
+                                <img class="img-fluid border rounded img-equal-height" src="images/tata tigon.webp"
+                                    alt="Papeete cityscape">
+                            </a>
+                        </div>
+                        <div class="content">
+                            <p class="text-center">tata tigon</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="swiper-slide d-flex flex-column">
+                        <div>
+                            <a href="3_.html">
+                                <img class="img-fluid border rounded img-equal-height" src="images/renault kwid.webp"
+                                    alt="Tevaitoa beach">
+                            </a>
+                        </div>
+                        <div class="content">
+                            <p class="text-center">renault kwid</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="swiper-slide d-flex flex-column">
+                        <div>
+                            <a href="4_.html">
+                                <img class="img-fluid border rounded img-equal-height" src="images/maruti wagon.jpg"
+                                    alt="Maharepa resort">
+                            </a>
+                        </div>
+                        <div class="content">
+                            <p class="text-center">maruti wagon</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="swiper-slide d-flex flex-column">
+                        <div>
+                            <a href="5_.html">
+                                <img class="img-fluid border rounded img-equal-height"
+                                    src="images/Maruti Suzuki S-Presso.jpg" alt="Pihaena beach view">
+                            </a>
+                        </div>
+                        <div class="content">
+                            <p class="text-center">Maruti Suzuki S-Presso</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="swiper-slide d-flex flex-column">
+                        <div>
+                            <a href="7_.html">
+                                <img class="img-fluid border rounded img-equal-height"
+                                    src="images/maruti suzuki alto 800.webp" alt="Hero image - explore">
+                            </a>
+                        </div>
+                        <div class="content">
+                            <p class="text-center">maruti suzuki alto 800</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="swiper-slide d-flex flex-column">
+                        <div>
+                            <a href="8_.html">
+                                <img class="img-fluid border rounded img-equal-height" src="images/maruti alto k10.webp"
+                                    alt="Papeete cityscape">
+                            </a>
+                        </div>
+                        <div class="content">
+                            <p class="text-center">maruti alto k10</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr><br>
+
+    <section class="container">
+        <div class="container-fluid row">
+        <div class="col-lg-6 col-md-12">
+            <h4 style="color: red;">Additional Expenses</h4>
+            <ul>
+                <li>
+                    <p>Toll and Parking Expenses</p>
+                </li>
+                <li>
+                    <p>Fees for not returning the car with a full tank of fuel.</p>
+                </li>
+                <li>
+                    <p>Charges for adding extra drivers to the rental agreement</p>
+                </li>
+                <li>
+                    <p>Fees for renting child safety seats</p>
+                </li>
+                <!-- <li>
+                    <p>Penalty for returning the car later than the agreed time</p>
+                </li>
+                <li>
+                    <p>Charges for dropping off the car at a different location than the pickup point.</p>
+                </li> -->
+            </ul>
+    </div>
+            <div class="col-lg-6 col-md-12">
+            <h4 class="" style="color: red;">Terms & Conditions</h4>
+            <ul>
+                <li>
+                    <p>Toll and Parking costs will be added post-trip.</p>
+                </li>
+                <li>
+                    <p>The calculation starts from office to office based on time and kilometers.</p>
+                </li>
+                <li>
+                    <p>Minimum charges apply for 8 hours or 80 kilometers.</p>
+                </li>
+                <li>
+                    <p>A cancellation charge applies if the booking is canceled.</p>
+                </li>
+            </ul>
+            </div>
+        
+        </div>
+    </section><br>
+
+    <section class="reliability">
+    <h4 class="text-center">Reliability</h4>
+    <div class="features">
+    <div class="feature-item">
+        <!-- <img src="https://via.placeholder.com/50" alt="Book with confidence"> -->
+        <h3>Book with confidence</h3>
+        <p>Quotes are instant and reserved online. Cancellations up to 24 hours before pickup are refunded in full.</p>
+    </div>
+    <div class="feature-item">
+        <!-- <img src="https://via.placeholder.com/50" alt="Stay in control"> -->
+        <h3>Stay in control</h3>
+        <p>Our drivers are vaccinated and professional. Our operations team is on call over WhatsApp or phone.</p>
+    </div>
+    <div class="feature-item">
+        <!-- <img src="https://via.placeholder.com/50" alt="Travel in comfort"> -->
+        <h3>Travel in comfort</h3>
+        <p>Every vehicle is air-conditioned. We arrange 4G mobile hotspots, child safety seats, and local tour guides upon request.</p>
+    </div>
+    </div>
+</section>
+
+    <div class="container">
+        <h3 class="text-center">FAQ's</h3><br>  
+        <div class="row">
+            <div class="faq-item col-lg-10 col-md-12">
+                <div class="faq-question"><b>Q.</b> What is your return policy?</div>
+                <div class="faq-answer">You can return items within 30 days of receipt for a full refund or
+                    exchange.
+                </div>
+            </div>
+            <div class="faq-item col-lg-10 col-md-12">
+                <div class="faq-question"><b>Q.</b> How do I track my order?</div>
+                <div class="faq-answer">You can track your order using the tracking number provided in your
+                    confirmation email.</div>
+            </div>
+            <div class="faq-item col-lg-10 col-md-12">
+                <div class="faq-question"><b>Q.</b> Do you offer international shipping?</div>
+                <div class="faq-answer">Yes, we offer international shipping to many countries. Shipping costs and
+                    delivery times vary by destination.</div>
+            </div>
+            <div class="faq-item col-lg-10 col-md-12">
+                <div class="faq-question"><b>Q.</b> Do you give car at night?</div>
+                <div class="faq-answer">Yes, we offer international shipping to many countries. Shipping costs and
+                    delivery times vary by destination.</div>
+            </div>
+            <div class="faq-item col-lg-10 col-md-12">
+                <div class="faq-question"><b>Q.</b> Do you offer national shipping?</div>
+                <div class="faq-answer">Yes, we offer national shipping to many countries. Shipping costs and
+                    delivery times vary by destination.</div>
+            </div>
+        </div>
+    </div><br>
+
+    <footer class="footer mt-auto py-3">
+        <div class="container text-center text-md-left">
+            <div class="row">
+                <div class="col-md-3 mx-auto mb-4">
+                    <h6 class="text-uppercase font-weight-bold">Car Rent</h6>
+                    <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                        style="width: 125px; background-color: #7c4dff; height: 2px" />
+                    <p class="mt-2">
+                    At Car Rent, we specialize in providing premium car rental services that prioritize convenience and affordability. Our goal is to make your car rental experience seamless and stress-free,</p>
+                </div>
+
+                <div class="col-md-2 mx-auto mb-4">
+                    <h6 class="text-uppercase font-weight-bold">Most Rented Cars</h6>
+                    <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                        style="width: 85px; background-color: #7c4dff; height: 2px" />
+                    <ul class="list-unstyled">
+                        <li class="my-2"><a href="#!">Maruti Alto K10</a></li>
+                        <li class="my-2"><a href="#!">Tata Tigor</a></li>
+                        <li class="my-2"><a href="#!">Maruti Baleno</a></li>
+                        <li class="my-2"><a href="#!">Hyundai Exter</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-2 mx-auto mb-4">
+                    <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+                    <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                        style="width: 110px; background-color: #7c4dff; height: 2px" />
+                    <ul class="list-unstyled">
+                        <li class="my-2"><a href="#!">Home</a></li>
+                        <li class="my-2"><a href="#!">About</a></li>
+                        <li class="my-2"><a href="#!">Pricing</a></li>
+                        <li class="my-2"><a href="#!">Contact us</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 mx-auto mb-4">
+                    <h6 class="text-uppercase font-weight-bold">Contact</h6>
+                    <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                        style="width: 75px; background-color: #7c4dff; height: 2px" />
+                    <ul class="list-unstyled">
+                        <li class="my-2"><i class="fas fa-home mr-3"></i> Dalwi Wasti Ward No.7, NY 10012, Shrirampur-413709</li>
+                        <li class="my-2"><i class="fas fa-envelope mr-3"></i> chetandhamgunde@gmail.com</li>
+                        <li class="my-2"><i class="fas fa-phone mr-3"></i> +91 8080762949</li>
+                        <li class="my-2"><i class="fas fa-print mr-3"></i> +91 7666381236</li>
+                    </ul>
+                </div>
+
+                <div class="social__icons col-12">
+                    <a href="#"><i class="ri-instagram-line"></i></a>
+                    <a href="#"><i class="ri-facebook-circle-line"></i></a>
+                    <a href="#"><i class="ri-twitter-line"></i></a>
+                    <a href="#"><i class="ri-telegram-line"></i></a>
+                    <a href="#"><i class="ri-discord-line"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom text-center py-3">
+            <p>© 2023 Company Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="JS.js"></script>
+    <script>
+        const scrollContainer = document.querySelector('.scroll-container');
+        const scrollContent = document.querySelector('.scroll-content');
+
+        let scrollAmount = 0;
+        const scrollSpeed = 0.5; // Adjust the speed here
+
+        function autoScroll() {
+            scrollAmount += scrollSpeed;
+            if (scrollAmount >= scrollContent.scrollWidth / 2) {
+                scrollAmount = 0; // Reset to start
+            }
+            scrollContainer.scrollLeft = scrollAmount;
+            requestAnimationFrame(autoScroll); // Repeat the animation
+        }
+        autoScroll(); // Start the scrolling
+
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+
+</html>
